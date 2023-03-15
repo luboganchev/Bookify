@@ -1,22 +1,24 @@
-﻿using Bookify.Models;
+﻿using Bookify.Entities;
+using Bookify.Models;
 using Bookify.Repositories;
+using Microsoft.Extensions.Logging;
 
 namespace Bookify.Services
 {
     public class BookService : IBookService
     {
         private readonly IBookRepository _bookRepository;
-        //private readonly IAuthorRepository _authorRepository;
-        //private readonly ILogger _logger;
+        private readonly IAuthorRepository _authorRepository;
+        private readonly ILogger _logger;
 
         public BookService(
-            IBookRepository bookRepository)
-        //IAuthorRepository authorRepository, 
-        //ILogger<BookService> logger)
+            IBookRepository bookRepository,
+            IAuthorRepository authorRepository,
+            ILogger<BookService> logger)
         {
             _bookRepository = bookRepository;
-            //this._authorRepository = authorRepository;
-            //_logger = logger;
+            this._authorRepository = authorRepository;
+            _logger = logger;
         }
 
         public async Task<IEnumerable<BookDto>> Get(int skip, int take)
@@ -35,18 +37,17 @@ namespace Bookify.Services
 
         public async Task<BookDto> Create(BookInputModel book)
         {
-            throw new NotImplementedException();
-            //var author = await _authorRepository.GetByIdAsync(book.AuthorId);
-            //if (author == null)
-            //{
-            //    return null;
-            //}
+            var author = await _authorRepository.GetByIdAsync(book.AuthorId);
+            if (author == null)
+            {
+                return null;
+            }
 
-            //var bookEntity = new Book(book.Title, book.PagesCount, book.AuthorId);
-            //var newBook = await _bookRepository.Create(bookEntity);
-            //_logger.LogInformation($"Book {newBook.Title} created!");
+            var bookEntity = new Book(book.Title, book.PagesCount, book.AuthorId);
+            var newBook = await _bookRepository.Create(bookEntity);
+            _logger.LogInformation($"Book {newBook.Title} created!");
 
-            //return newBook;
+            return newBook;
         }
 
         public async Task<BookDto> Update(Guid id, BookInputModel book)

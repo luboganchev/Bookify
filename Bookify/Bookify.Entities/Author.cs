@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bookify.Entities
+﻿namespace Bookify.Entities
 {
     public class Author : ISoftDelete
     {
@@ -18,6 +12,8 @@ namespace Bookify.Entities
         public string FullName { get; set; } = string.Empty;
 
         public DateTime? DateOfBirth { get; set; }
+
+        public virtual ICollection<Book> Book { get; set; }
 
         public bool IsDeleted { get; set; }
 
