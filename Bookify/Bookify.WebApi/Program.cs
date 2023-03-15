@@ -1,4 +1,6 @@
 using Bookify.Infrastructure;
+using Bookify.Repositories;
+using Bookify.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +16,9 @@ var connectionString = builder.Configuration.GetConnectionString("BookifyDb");
 
 //TODO search how to use Interface here
 builder.Services.AddDbContext<BookifyDbContext>(opt => opt.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<IBookService, BookService>();
+builder.Services.AddScoped<IBookRepository, BookRepository>();
 
 var app = builder.Build();
 
