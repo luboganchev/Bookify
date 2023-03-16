@@ -2,6 +2,7 @@ using Bookify.Infrastructure;
 using Bookify.Models;
 using Bookify.Repositories;
 using Bookify.Services;
+using Bookify.WebApi.Extensions;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
@@ -41,6 +42,10 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+else
+{
+    app.ConfigureExceptionHandler(app.Logger);
 }
 
 app.UseHttpsRedirection();

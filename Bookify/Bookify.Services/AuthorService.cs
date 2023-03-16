@@ -1,16 +1,19 @@
 ﻿using Bookify.Entities;
 using Bookify.Models;
 using Bookify.Repositories;
+using Microsoft.Extensions.Logging;
 
 namespace Bookify.Services
 {
     public class AuthorService : IAuthorService
     {
         private readonly IAuthorRepository _authorRepository;
+        private readonly ILogger _logger;
 
-        public AuthorService(IAuthorRepository authorRepository)
+        public AuthorService(IAuthorRepository authorRepository, ILogger<AuthorService> logger)
         {
             _authorRepository = authorRepository;
+            _logger = logger;
         }
 
         public async Task<IEnumerable<AuthorDto>> Get(int skip, int take)
@@ -43,7 +46,7 @@ namespace Bookify.Services
             };
 
             var newAuthor = await _authorRepository.CreateAsync(authorEntity);
-            //_logger.LogInformation($"Author {author.FullName} created!");
+            _logger.LogInformation($"Author {author.FullName} created!");
 
             return newAuthor;
         }
@@ -51,10 +54,9 @@ namespace Bookify.Services
         public async Task<AuthorDto?> Update(Guid id, AuthorInputModel author)
         {
             var updatedAuthor = await _authorRepository.UpdateAsync(id, author);
-
             if (updatedAuthor != null)
             {
-                //_logger.LogInformation($"Author {author.FullName} updated!");
+                _logger.LogInformation($"Author {author.FullName} updated!");
             }
 
             return updatedAuthor;
@@ -63,7 +65,7 @@ namespace Bookify.Services
         public async Task<bool> Delete(Guid id)
         {
             var isDeleted = await _authorRepository.DeleteAsync(id);
-            //_logger.LogInformation($"Author with id:{id} deleted!");
+            _logger.LogInformation($"Author with id:{id} deleted!");
 
             return isDeleted;
         }

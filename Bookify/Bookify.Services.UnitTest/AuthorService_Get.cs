@@ -1,6 +1,7 @@
 using Bookify.Models;
 using Bookify.Repositories;
 using Microsoft.Extensions.Logging;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
 namespace Bookify.Services.UnitTest
@@ -9,14 +10,17 @@ namespace Bookify.Services.UnitTest
     public class AuthorService_Get
     {
         private Mock<IAuthorRepository> authorRepository;
+        private Mock<ILogger<Services.AuthorService>> logger;
         private Services.AuthorService sut;
 
         [TestInitialize]
         public void Init()
         {
             authorRepository = new Mock<IAuthorRepository>();
-            sut = new Services.AuthorService(authorRepository.Object);
+            logger = new Mock<ILogger<Services.AuthorService>>();
+            sut = new Services.AuthorService(authorRepository.Object, logger.Object);
         }
+
 
         [TestMethod]
         public async Task Should_Return_All_Authors_By_Page()

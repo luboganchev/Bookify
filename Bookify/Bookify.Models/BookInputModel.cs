@@ -17,7 +17,7 @@ namespace Bookify.Models
         {
             RuleFor(x => x.Title).NotNull().NotEmpty().Length(1, 256);
             RuleFor(x => x.AuthorId).NotNull().NotEmpty();
-            RuleFor(x => x.PagesCount).GreaterThan(0);
+            RuleFor(x => x.PagesCount).GreaterThan(0).LessThan(5000);
         }
     }
 }

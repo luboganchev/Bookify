@@ -2,7 +2,7 @@
 using Bookify.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Bookify.WebApi
+namespace Bookify.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
