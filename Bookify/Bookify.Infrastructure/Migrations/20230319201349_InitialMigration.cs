@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Bookify.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class Initialmigration : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -94,11 +94,11 @@ namespace Bookify.Infrastructure.Migrations
                 columns: new[] { "Id", "DateOfBirth", "DeletedAt", "FullName", "IsDeleted" },
                 values: new object[,]
                 {
-                    { new Guid("199ba95a-78a2-4daf-99a6-dea956165284"), null, null, "Fyodor Dostoevsky", false },
-                    { new Guid("b81c7fb8-0e22-44a3-b3c9-bfb74866871a"), new DateTime(1564, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "William Shakespeare", false },
-                    { new Guid("b948bddf-e10c-4419-aab3-e5987007bbbf"), null, null, "Charles Dickens", false },
-                    { new Guid("bc92a660-649b-4c37-88c2-f0458d261013"), null, null, "Ernest Hemingway", false },
-                    { new Guid("cb6d2d87-dcd5-4cb5-be2b-483482c0d76e"), new DateTime(1848, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Hristo Botev", false }
+                    { new Guid("2ea49d95-4e4e-44ee-950e-b273c0cbea8a"), null, null, "Charles Dickens", false },
+                    { new Guid("3477e952-c34a-47c7-a3d9-39d136ce486f"), new DateTime(1564, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "William Shakespeare", false },
+                    { new Guid("5a8085ee-1909-446c-8a24-3c3c45ccf9b6"), null, null, "Fyodor Dostoevsky", false },
+                    { new Guid("86902c7c-c31a-4a4f-95e1-3eeca9c39e6e"), new DateTime(1848, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Hristo Botev", false },
+                    { new Guid("b65902a7-8c44-413a-99bc-86156211ae3b"), null, null, "Ernest Hemingway", false }
                 });
 
             migrationBuilder.InsertData(
@@ -106,9 +106,9 @@ namespace Bookify.Infrastructure.Migrations
                 columns: new[] { "Id", "DateFounded", "DeletedAt", "IsDeleted", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("76058411-1087-4bdf-90cc-b78921052b6d"), new DateTime(1971, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, false, "Powell's Books" },
-                    { new Guid("b3175c19-39e1-4936-bb84-ad85abbeece4"), new DateTime(1994, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), null, false, "Amazon" },
-                    { new Guid("b5b03ff8-b9d7-42f1-94a3-c35bfd94126d"), new DateTime(2008, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, false, "Ozone" }
+                    { new Guid("467d5837-8ff7-43ed-abf9-92fd430f4dc8"), new DateTime(1971, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, false, "Powell's Books" },
+                    { new Guid("6c424a69-42b0-49db-b1a5-7c2e8820e22d"), new DateTime(1994, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), null, false, "Amazon" },
+                    { new Guid("d53bfa82-def2-48ad-9cad-0ae619677155"), new DateTime(2008, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), null, false, "Ozone" }
                 });
 
             migrationBuilder.CreateIndex(

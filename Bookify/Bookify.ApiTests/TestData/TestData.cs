@@ -13,7 +13,7 @@ namespace Bookify.ApiTests.TestData
         {
             Title = "Test Book",
             PagesCount = 100,
-            AuthorId = Guid.Parse("2788DCBA-EEBF-4C87-9D73-35DD187C2277")
+            AuthorId = Guid.Parse("86902C7C-C31A-4A4F-95E1-3EECA9C39E6E")
         };
     }
 }
