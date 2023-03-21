@@ -15,11 +15,11 @@ namespace SpecFlowApiTests.StepDefinitions
             _client = scenarioContext.Get<RestClient>("RestClient");
         }
 
-        //[Given("I create an Api Client")]
-        //public void GivenICreateAnApiClient()
-        //{
+        // [Given("I create an Api Client")]
+        // public void GivenICreateAnApiClient()
+        // {
         //    _client = new RestClient("https://localhost:7095/");
-        //}
+        // }
 
         [Given("I create Get Author request")]
         public void GivenICreateGetAuthorRequest()

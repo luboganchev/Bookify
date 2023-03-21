@@ -1,10 +1,10 @@
 ﻿using RestSharp;
 
-namespace Bookify.ApiTestsSpecFlow.ApiClients
+namespace Bookify.ApiTestsSpecFlow.Drivers
 {
-    public class ApiClient
+    public class Driver
     {
-        public ApiClient(ScenarioContext scenarioContext)
+        public Driver(ScenarioContext scenarioContext)
         {
             var clientOptions = new RestClientOptions()
             {

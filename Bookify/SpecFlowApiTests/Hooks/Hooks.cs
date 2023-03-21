@@ -1,4 +1,4 @@
-﻿using Bookify.ApiTestsSpecFlow.ApiClients;
+﻿using Bookify.ApiTestsSpecFlow.Drivers;
 using TechTalk.SpecFlow;
 
 namespace Bookify.ApiTestsSpecFlow.Hooks
@@ -17,7 +17,7 @@ namespace Bookify.ApiTestsSpecFlow.Hooks
         [BeforeScenario()]
         public void InitializeApiClient()
         {
-            ApiClient client = new ApiClient(_scenarioContext); 
+            Driver client = new Driver(_scenarioContext); 
         }
 
     }
