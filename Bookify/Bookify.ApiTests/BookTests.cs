@@ -18,7 +18,6 @@ namespace Bookify.Testing.Api
     {
         private const string bookUri = "api/Book";
 
-
         [AllureStory("As a user I want to get a list with all available books so I can modify it")]
         [Test(Description = "Get all available books")]
         public void GetAllBooksTest()

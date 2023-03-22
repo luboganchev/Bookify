@@ -47,7 +47,7 @@ namespace Bookify.Testing.Api
         [Test]
         public void GetAuthorByIdTest()
         {
-            var authorName = "Test Author";
+            var authorName = "Test Author 2";
 
             var createRequest = new RestRequest(authorUri, Method.Post);
             var author = new AuthorInputModel
@@ -61,11 +61,22 @@ namespace Bookify.Testing.Api
             createResponse.StatusCode.Should().Be(HttpStatusCode.OK);
             var authorId = createResponse.Data?.Id;
 
+
             var request = new RestRequest(authorUri + "/" + authorId, Method.Get);
             var response = client.Execute<AuthorDto>(request);
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             response.Data?.FullName.Should().Be(authorName);
+        }
+
+        [Test]
+        public void GetAuthorByIdTest_Negative()
+        {
+            var authorId = Guid.NewGuid().ToString();
+            var request = new RestRequest(authorUri + "/" + authorId, Method.Get);
+            var response = client.Execute<AuthorDto>(request);
+
+            response.StatusCode.Should().Be(HttpStatusCode.NotFound);
         }
 
         [Test]
@@ -84,6 +95,21 @@ namespace Bookify.Testing.Api
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
             response.Data?.FullName.Should().Be(author);
+        }
+
+        [Test]
+        public void PostAuthorTest_Negative()
+        {
+            var author = "Test Author";
+            var request = new RestRequest(authorUri, Method.Post);
+            request.AddBody(new AuthorInputModel
+            {
+                FullName = null,
+            });
+            var response = client.Execute(request);
+
+            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+            response.Content.Should().Contain("'Full Name' must not be empty.");
         }
 
         [Test]
