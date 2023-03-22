@@ -63,32 +63,32 @@ namespace Bookify.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b81c7fb8-0e22-44a3-b3c9-bfb74866871a"),
+                            Id = new Guid("3477e952-c34a-47c7-a3d9-39d136ce486f"),
                             DateOfBirth = new DateTime(1564, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FullName = "William Shakespeare",
                             IsDeleted = false
                         },
                         new
                         {
-                            Id = new Guid("b948bddf-e10c-4419-aab3-e5987007bbbf"),
+                            Id = new Guid("2ea49d95-4e4e-44ee-950e-b273c0cbea8a"),
                             FullName = "Charles Dickens",
                             IsDeleted = false
                         },
                         new
                         {
-                            Id = new Guid("199ba95a-78a2-4daf-99a6-dea956165284"),
+                            Id = new Guid("5a8085ee-1909-446c-8a24-3c3c45ccf9b6"),
                             FullName = "Fyodor Dostoevsky",
                             IsDeleted = false
                         },
                         new
                         {
-                            Id = new Guid("bc92a660-649b-4c37-88c2-f0458d261013"),
+                            Id = new Guid("b65902a7-8c44-413a-99bc-86156211ae3b"),
                             FullName = "Ernest Hemingway",
                             IsDeleted = false
                         },
                         new
                         {
-                            Id = new Guid("cb6d2d87-dcd5-4cb5-be2b-483482c0d76e"),
+                            Id = new Guid("86902c7c-c31a-4a4f-95e1-3eeca9c39e6e"),
                             DateOfBirth = new DateTime(1848, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FullName = "Hristo Botev",
                             IsDeleted = false
@@ -150,21 +150,21 @@ namespace Bookify.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b3175c19-39e1-4936-bb84-ad85abbeece4"),
+                            Id = new Guid("6c424a69-42b0-49db-b1a5-7c2e8820e22d"),
                             DateFounded = new DateTime(1994, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Name = "Amazon"
                         },
                         new
                         {
-                            Id = new Guid("b5b03ff8-b9d7-42f1-94a3-c35bfd94126d"),
+                            Id = new Guid("d53bfa82-def2-48ad-9cad-0ae619677155"),
                             DateFounded = new DateTime(2008, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Name = "Ozone"
                         },
                         new
                         {
-                            Id = new Guid("76058411-1087-4bdf-90cc-b78921052b6d"),
+                            Id = new Guid("467d5837-8ff7-43ed-abf9-92fd430f4dc8"),
                             DateFounded = new DateTime(1971, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Name = "Powell's Books"
@@ -189,12 +189,17 @@ namespace Bookify.Infrastructure.Migrations
             modelBuilder.Entity("Bookify.Entities.Book", b =>
                 {
                     b.HasOne("Bookify.Entities.Author", "Author")
-                        .WithMany()
+                        .WithMany("Book")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Author");
+                });
+
+            modelBuilder.Entity("Bookify.Entities.Author", b =>
+                {
+                    b.Navigation("Book");
                 });
 #pragma warning restore 612, 618
         }

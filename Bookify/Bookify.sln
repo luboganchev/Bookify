@@ -15,7 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookify.Entities", "Bookify
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookify.Models", "Bookify.Models\Bookify.Models.csproj", "{1BA6C621-0F39-4DE1-B9C4-CE42B9FA7EF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookify.Services.UnitTest", "Bookify.Services.UnitTest\Bookify.Services.UnitTest.csproj", "{CAC64024-539E-4C57-92BA-7D85D4C1057F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookify.Services.UnitTest", "Bookify.Services.UnitTest\Bookify.Services.UnitTest.csproj", "{CAC64024-539E-4C57-92BA-7D85D4C1057F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookify.ApiTests", "Bookify.ApiTests\Bookify.ApiTests.csproj", "{AE67DDB2-0FE0-4B94-91B7-3028FFAF0A11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookify.ApiTestsSpecFlow", "SpecFlowApiTests\Bookify.ApiTestsSpecFlow.csproj", "{74403172-5C5B-4CC9-9048-9C34654165C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{CAC64024-539E-4C57-92BA-7D85D4C1057F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAC64024-539E-4C57-92BA-7D85D4C1057F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAC64024-539E-4C57-92BA-7D85D4C1057F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE67DDB2-0FE0-4B94-91B7-3028FFAF0A11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE67DDB2-0FE0-4B94-91B7-3028FFAF0A11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE67DDB2-0FE0-4B94-91B7-3028FFAF0A11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE67DDB2-0FE0-4B94-91B7-3028FFAF0A11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74403172-5C5B-4CC9-9048-9C34654165C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74403172-5C5B-4CC9-9048-9C34654165C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74403172-5C5B-4CC9-9048-9C34654165C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74403172-5C5B-4CC9-9048-9C34654165C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
